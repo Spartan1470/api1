@@ -1,10 +1,7 @@
-//Importar Mongoose
+//import { type } from "express/lib/response"
 import mongoose from 'mongoose'
 
-//Constante para crear el MODELO DE DATOS
 const Schema=mongoose.Schema
-
-//Contruyo mi modelo o Esquema Habitacion
 const Habitacion=new Schema({
 
     nombre:{
@@ -22,8 +19,6 @@ const Habitacion=new Schema({
     precio:{
         type:Number,
         required:true
-    }
-
+    },
 })
-
 export const modeloHabitacion=mongoose.model('habitaciones',Habitacion)

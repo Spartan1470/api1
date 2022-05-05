@@ -1,13 +1,6 @@
-//Importamos el servicio HABITACION 
-//NOTA: UN CONTROLADOR PUEDE LLAMAR A VARIOS SERVICIOS
 import {ServicioHabitacion} from '../services/ServicioHabitacion.js'
-
-//CONTROLADOR TIENE LA LOGICA
-//DEL NEGOCIO
 export class ControladorHabitacion{
-
     constructor(){}
-
     async insertar(request,response){
         let servicio=new ServicioHabitacion() 
         let datosPeticion=request.body //Recibo datos BODY
@@ -26,11 +19,8 @@ export class ControladorHabitacion{
             })
         }
     }
-
     async buscarTodos(request,response){
 
-        //Instancio la clase servicio
-        //PARA PODERLA UTILIZAR
         let servicio=new ServicioHabitacion()
         try{
             response.status(200).json({
@@ -46,11 +36,9 @@ export class ControladorHabitacion{
             })
         }
     }
-
     async buscarPorId(request,response){
         let servicio=new ServicioHabitacion()
-        let id=request.params.id //El id que llega por la URL
-
+        let id=request.params.id
         try{
             response.status(200).json({
                 mensaje:"exito buscando habitación por id",
@@ -65,12 +53,10 @@ export class ControladorHabitacion{
             })
         }     
     }
-
     async editar(request,response){
         let servicio=new ServicioHabitacion()
         let id=request.params.id //El id que llega por la URL
         let datosPeticion=request.body //Recibo datos BODY
-
         try{
             await servicio.editar(id,datosPeticion)
             response.status(200).json({
@@ -86,7 +72,6 @@ export class ControladorHabitacion{
             })
         }  
     }
-
     async eliminar(request,response){
         let servicio=new ServicioHabitacion()
         let id=request.params.id //El id que llega por la URL
@@ -105,5 +90,4 @@ export class ControladorHabitacion{
             })
         }
     }
-
 }
